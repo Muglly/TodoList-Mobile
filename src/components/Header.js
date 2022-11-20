@@ -30,5 +30,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 20,
     marginTop: 20,
+    fontFamily: 'Medium',
   },
 });
