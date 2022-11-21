@@ -16,12 +16,12 @@ export function Header() {
 const styles = StyleSheet.create({
   image: {
     width: '100%',
-    height: 100,
+    height: 80,
     resizeMode: 'cover',
   },
   coverView: {
     width: '100%',
-    height: 100,
+    height: 80,
     backgroundColor: 'rgba(0,0,0,0.5)',
     alignItems: 'center',
     justifyContent: 'center',
@@ -30,6 +30,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 20,
     marginTop: 20,
-    fontFamily: 'Medium',
+    fontFamily: 'Regular',
   },
 });

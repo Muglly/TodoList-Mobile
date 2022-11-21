@@ -9,6 +9,7 @@ import {
 } from '@expo-google-fonts/roboto';
 
 import { Header } from './src/components/Header';
+import Task from './src/components/Task';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -24,6 +25,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Header />
+      <Task />
       <StatusBar style="auto" />
     </View>
   );
