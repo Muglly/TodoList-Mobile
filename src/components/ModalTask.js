@@ -1,28 +1,27 @@
-import { StyleSheet, Text, View, Modal, TextInput, Pressable, Alert } from 'react-native';
+import { StyleSheet, Text, View, Modal, TextInput, Pressable } from 'react-native';
 import React, { useState } from 'react';
 
 export default function ModalTask() {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
-    <View>
+    <View style={{ alignItems: 'center' }}>
       <Modal
         animationType="slide"
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          Alert.alert('Modal has been closed.');
           setModalVisible(!modalVisible);
         }}
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <TextInput autoFocus={true}></TextInput>
+            <TextInput autoFocus={true} placeholder="enter your task" />
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}
             >
-              <Text style={styles.textStyle}>Close</Text>
+              <Text style={styles.textStyle}>Save Task</Text>
             </Pressable>
           </View>
         </View>
@@ -57,6 +56,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   button: {
+    width: 150,
     borderRadius: 20,
     margin: 10,
     padding: 10,
