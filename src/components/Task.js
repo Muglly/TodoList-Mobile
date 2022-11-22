@@ -14,14 +14,23 @@ export default function Task() {
     },
   ]);
 
+  function DeleteTask(id) {
+    alert('tarefa com id' + id + ' foi delatado');
+
+    const newTask = isTask.filter((val) => {
+      return val.id != id;
+    });
+    setIsTask(newTask);
+  }
+
   return (
     <ScrollView>
       {isTask.map((val) => {
         return (
-          <View style={styles.tasks}>
+          <View style={styles.tasks} key={val.id}>
             <Text>{val.todo}</Text>
             <View>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => DeleteTask(val.id)}>
                 <Feather name="trash" size={24} color="red" />
               </TouchableOpacity>
             </View>
