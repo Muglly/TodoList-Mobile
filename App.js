@@ -10,6 +10,7 @@ import {
 
 import { Header } from './src/components/Header';
 import Task from './src/components/Task';
+import ModalTask from './src/components/ModalTask';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -26,6 +27,7 @@ export default function App() {
     <View style={styles.container}>
       <Header />
       <Task />
+      <ModalTask />
       <StatusBar style="auto" />
     </View>
   );
