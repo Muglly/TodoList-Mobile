@@ -12,6 +12,8 @@ import { Header } from './src/components/Header';
 import Task from './src/components/Task';
 import ModalTask from './src/components/ModalTask';
 
+import { TaskContextState } from './src/contexts/TaskContext';
+
 export default function App() {
   const [fontsLoaded] = useFonts({
     Regular: Roboto_400Regular,
@@ -23,11 +25,18 @@ export default function App() {
     return null;
   }
 
+  function createTask() {
+    setModalVisible(!modalVisible);
+    alert('funcionou');
+  }
+
   return (
     <View style={styles.container}>
       <Header />
-      <Task />
-      <ModalTask />
+      <TaskContextState>
+        <Task />
+        <ModalTask createTask={() => createTask()} />
+      </TaskContextState>
       <StatusBar style="auto" />
     </View>
   );

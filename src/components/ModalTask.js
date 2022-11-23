@@ -1,8 +1,17 @@
+import React, { useState, useContext } from 'react';
 import { StyleSheet, Text, View, Modal, TextInput, Pressable } from 'react-native';
-import React, { useState } from 'react';
+
+import { TaskContext } from '../contexts/TaskContext';
 
 export default function ModalTask() {
   const [modalVisible, setModalVisible] = useState(false);
+
+  const { setIsNewTask } = useContext(TaskContext);
+
+  function saveTask() {
+    setModalVisible(!modalVisible);
+    alert('Saved successfully');
+  }
 
   return (
     <View style={{ alignItems: 'center' }}>
@@ -16,11 +25,8 @@ export default function ModalTask() {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <TextInput autoFocus={true} placeholder="enter your task" />
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
+            <TextInput autoFocus={true} placeholder="enter your task" onChangeText={setIsNewTask} />
+            <Pressable style={[styles.button, styles.buttonClose]} onPress={() => saveTask()}>
               <Text style={styles.textStyle}>Save Task</Text>
             </Pressable>
           </View>

@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
 import { Feather } from '@expo/vector-icons';
+
+import { TaskContext } from '../contexts/TaskContext';
 
 export default function Task() {
   const [isTask, setIsTask] = useState([
@@ -22,6 +24,20 @@ export default function Task() {
     });
     setIsTask(newTask);
   }
+
+  const { isNewTask, setIsNewTask } = useContext(TaskContext);
+
+  function createTask() {
+    if (isTask.length > 0) {
+      id = isTask[isTask.length - 1].id + 1;
+    }
+
+    alert(id);
+  }
+
+  useEffect(() => {
+    createTask();
+  }, isNewTask);
 
   return (
     <ScrollView>
