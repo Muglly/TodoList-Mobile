@@ -1,59 +1,32 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
+import React, { useContext, useState } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
 import { TaskContext } from '../contexts/TaskContext';
 
 export default function Task() {
-  const [isTask, setIsTask] = useState([
-    {
-      id: 1,
-      todo: 'tesk 1',
-    },
-    {
-      id: 2,
-      todo: 'tesk 2',
-    },
-  ]);
-
-  function DeleteTask(id) {
-    alert('tarefa com id' + id + ' foi delatado');
-
-    const newTask = isTask.filter((val) => {
-      return val.id != id;
-    });
-    setIsTask(newTask);
-  }
-
   const { isNewTask, setIsNewTask } = useContext(TaskContext);
 
-  function createTask() {
-    if (isTask.length > 0) {
-      id = isTask[isTask.length - 1].id + 1;
-    }
+  const [isTask, setIsTask] = useState([]);
 
-    alert(id);
+  function DeleteTask() {
+    alert('tarefa com id' + ' foi delatado');
+
+    // const newTask = isTask.filter((val) => {
+    //   return val.id != id;
+    // });
+    // setIsTask(newTask);
   }
 
-  useEffect(() => {
-    createTask();
-  }, isNewTask);
-
   return (
-    <ScrollView>
-      {isTask.map((val) => {
-        return (
-          <View style={styles.tasks} key={val.id}>
-            <Text>{val.todo}</Text>
-            <View>
-              <TouchableOpacity onPress={() => DeleteTask(val.id)}>
-                <Feather name="trash" size={24} color="red" />
-              </TouchableOpacity>
-            </View>
-          </View>
-        );
-      })}
-    </ScrollView>
+    <View style={styles.tasks}>
+      <Text>{isNewTask}</Text>
+      <View>
+        <TouchableOpacity onPress={() => DeleteTask()}>
+          <Feather name="trash" size={24} color="red" />
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 }
 

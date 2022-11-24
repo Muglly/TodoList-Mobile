@@ -8,11 +8,7 @@ import {
   Roboto_700Bold,
 } from '@expo-google-fonts/roboto';
 
-import { Header } from './src/components/Header';
-import Task from './src/components/Task';
-import ModalTask from './src/components/ModalTask';
-
-import { TaskContextState } from './src/contexts/TaskContext';
+import Home from './src/screens/Home';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -25,18 +21,9 @@ export default function App() {
     return null;
   }
 
-  function createTask() {
-    setModalVisible(!modalVisible);
-    alert('funcionou');
-  }
-
   return (
     <View style={styles.container}>
-      <Header />
-      <TaskContextState>
-        <Task />
-        <ModalTask createTask={() => createTask()} />
-      </TaskContextState>
+      <Home />
       <StatusBar style="auto" />
     </View>
   );
