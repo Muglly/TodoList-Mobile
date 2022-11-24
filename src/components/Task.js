@@ -2,13 +2,7 @@ import React, { useContext, useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
-import { TaskContext } from '../contexts/TaskContext';
-
-export default function Task() {
-  const { isNewTask, setIsNewTask } = useContext(TaskContext);
-
-  const [isTask, setIsTask] = useState([]);
-
+export default function Task({ todo }) {
   function DeleteTask() {
     alert('tarefa com id' + ' foi delatado');
 
@@ -20,7 +14,7 @@ export default function Task() {
 
   return (
     <View style={styles.tasks}>
-      <Text>{isNewTask}</Text>
+      <Text>{todo.text}</Text>
       <View>
         <TouchableOpacity onPress={() => DeleteTask()}>
           <Feather name="trash" size={24} color="red" />
