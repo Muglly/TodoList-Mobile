@@ -6,6 +6,7 @@ Dentro dessa aplicação é possível:
 
 - Criar tarefas.
 - Deletar taferas.
+- Persistência de dados com AsyncStorage
 
 <hr>
 
