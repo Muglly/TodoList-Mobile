@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { StyleSheet, Text, View, Modal, TextInput, Pressable } from 'react-native';
 
-export default function ModalTask({ todoHandler }) {
+export default function ModalTask({ addTask }) {
   const [modalVisible, setModalVisible] = useState(false);
   const [text, setText] = useState('');
   const [id, setId] = useState(0);
@@ -13,7 +13,7 @@ export default function ModalTask({ todoHandler }) {
     };
     setId(id + 1);
     setModalVisible(!modalVisible);
-    todoHandler(taskObj);
+    addTask(taskObj);
   };
 
   return (

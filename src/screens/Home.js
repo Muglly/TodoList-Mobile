@@ -8,10 +8,19 @@ import ModalTask from '../components/ModalTask';
 export default function Home() {
   const [todos, setTodos] = useState([]);
 
-  const todoHandler = (todo) => {
+  const addTask = (todo) => {
     alert('Saved successfully');
     console.log(todo);
     setTodos([...todos, todo]);
+  };
+
+  const deleteTask = (id) => {
+    alert('tarefa com id' + id + ' foi delatado');
+
+    const filterTask = todos.filter((todo) => {
+      return todo.id != id;
+    });
+    setTodos(filterTask);
   };
 
   return (
@@ -19,10 +28,10 @@ export default function Home() {
       <Header />
       <ScrollView>
         {todos.map((todo) => (
-          <Task todo={todo} />
+          <Task todo={todo} key={todo.id} deleteTask={deleteTask} />
         ))}
       </ScrollView>
-      <ModalTask todoHandler={todoHandler} />
+      <ModalTask addTask={addTask} />
     </View>
   );
 }
