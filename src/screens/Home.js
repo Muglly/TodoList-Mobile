@@ -9,13 +9,12 @@ export default function Home() {
   const [todos, setTodos] = useState([]);
 
   const addTask = (todo) => {
-    alert('Saved successfully');
-    console.log(todo);
+    alert('Saved successfully!');
     setTodos([...todos, todo]);
   };
 
   const deleteTask = (id) => {
-    alert('tarefa com id' + id + ' foi delatado');
+    alert('successfully deleted!');
 
     const filterTask = todos.filter((todo) => {
       return todo.id != id;
